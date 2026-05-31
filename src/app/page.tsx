@@ -150,7 +150,7 @@ export default function HomePage() {
                             onChange={(e) => setProvider(e.target.value as AIProvider)}
                             className="h-10 px-3 rounded-xl border border-border bg-card text-sm font-semibold outline-none focus:border-primary focus:ring-1 focus:ring-primary/10 transition-all text-foreground"
                           >
-                            <option value="gemini">Google Gemini (Model: gemini-1.5-flash)</option>
+                            <option value="gemini">Google Gemini (Model: gemini-2.5-flash)</option>
                             <option value="openai">OpenAI (Model: gpt-4o-mini)</option>
                             <option value="openrouter">OpenRouter (Model: gemma-4-26b-a4b-it:free)</option>
                           </select>
