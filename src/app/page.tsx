@@ -80,7 +80,7 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen">
       <Navbar showHistoryBtn={history.length > 0} onOpenHistory={() => setShowHistoryModal(true)} />
       
-      <main className="flex-grow container mx-auto px-4 py-8 flex flex-col items-center justify-center">
+      <main className="flex-grow container mx-auto px-4 py-4 flex flex-col items-center justify-center">
         <AnimatePresence mode="wait">
           {loading ? (
             <motion.div
@@ -101,21 +101,21 @@ export default function HomePage() {
               transition={{ duration: 0.3 }}
               className="w-full max-w-2xl"
             >
-              <div className="text-center mb-8">
-                <span className="inline-block px-3.5 py-1 text-xs font-bold bg-primary/10 border border-primary/20 text-primary rounded-full uppercase tracking-wider font-display mb-3">
+              <div className="text-center mb-5">
+                <span className="inline-block px-3.5 py-1 text-[10px] sm:text-xs font-bold bg-primary/10 border border-primary/20 text-primary rounded-full uppercase tracking-wider font-display mb-2">
                   Learn Spanish with Artificial Intelligence!
                 </span>
-                <h1 className="text-4xl sm:text-6xl font-display font-black tracking-tight gradient-text pb-2 leading-tight">
+                <h1 className="text-3xl sm:text-5xl font-display font-black tracking-tight gradient-text pb-1 leading-tight">
                   Spanish Quiz Generator
                 </h1>
-                <p className="text-sm sm:text-base text-muted max-w-lg mx-auto mt-2 font-medium">
+                <p className="text-xs sm:text-sm text-muted max-w-lg mx-auto mt-1.5 font-medium">
                   Choose any topic and level. Our AI will build a custom quiz with 10-15 questions in seconds.
                 </p>
               </div>
 
               <form
                 onSubmit={handleGenerateQuiz}
-                className="glassmorphism rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col gap-6"
+                className="glassmorphism rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col gap-4 w-full"
               >
                 <TopicInput value={topic} onChange={setTopic} error={validationError} />
                 
@@ -165,7 +165,7 @@ export default function HomePage() {
 
                 <button
                   type="submit"
-                  className="animated-border-glow w-full h-14 bg-primary hover:bg-primary-hover text-primary-foreground text-base font-bold rounded-2xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 cursor-pointer transition-all duration-300 active:scale-98 mt-2"
+                  className="animated-border-glow w-full h-12 bg-primary hover:bg-primary-hover text-primary-foreground text-sm sm:text-base font-bold rounded-2xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 cursor-pointer transition-all duration-300 active:scale-98 mt-1"
                 >
                   <span>Generate Quiz</span>
                   <ArrowRight className="w-5 h-5" />

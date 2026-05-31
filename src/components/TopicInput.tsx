@@ -21,14 +21,14 @@ const PRESET_TOPICS = [
 
 export default function TopicInput({ value, onChange, error }: TopicInputProps) {
   return (
-    <div className="flex flex-col gap-3.5 w-full">
+    <div className="flex flex-col gap-2.5 w-full">
       <div className="flex justify-between items-center">
         <label
           htmlFor="topic"
           className="font-display font-bold text-lg text-foreground flex items-center gap-1.5"
         >
           <span>What would you like to practice today?</span>
-          <span className="text-primary text-xs flex items-center gap-0.5 bg-primary/10 px-2 py-0.5 rounded-full font-semibold">
+          <span className="text-primary text-[10px] sm:text-xs flex items-center gap-0.5 bg-primary/10 px-2 py-0.5 rounded-full font-semibold">
             <Sparkles className="w-3 h-3" /> Free Topic
           </span>
         </label>
@@ -44,7 +44,7 @@ export default function TopicInput({ value, onChange, error }: TopicInputProps) 
           placeholder="Write a Spanish topic..."
           aria-invalid={!!error}
           aria-describedby={error ? "topic-error" : undefined}
-          className={`w-full h-14 px-5 pr-12 rounded-2xl bg-card border ${
+          className={`w-full h-12 sm:h-14 px-5 pr-12 rounded-2xl bg-card border ${
             error
               ? "border-red-500/80 focus:border-red-500 focus:shadow-[0_0_10px_rgba(239,68,68,0.2)]"
               : "border-border focus:border-primary focus:shadow-[0_0_15px_rgba(139,92,246,0.3)]"
@@ -67,10 +67,10 @@ export default function TopicInput({ value, onChange, error }: TopicInputProps) 
       )}
 
       <div>
-        <p className="text-xs font-semibold text-muted mb-2 uppercase tracking-wider pl-1">
+        <p className="text-[10px] sm:text-xs font-semibold text-muted mb-1.5 uppercase tracking-wider pl-1">
           Suggested Topics
         </p>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-nowrap sm:flex-wrap gap-2 overflow-x-auto pb-1 -mx-1 px-1 no-scrollbar">
           {PRESET_TOPICS.map((topic, idx) => (
             <motion.button
               key={idx}
@@ -78,7 +78,7 @@ export default function TopicInput({ value, onChange, error }: TopicInputProps) 
               onClick={() => onChange(topic.value)}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className={`px-3.5 py-1.5 rounded-xl text-sm font-medium border cursor-pointer transition-all duration-300 ${
+              className={`shrink-0 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-xl text-xs sm:text-sm font-medium border cursor-pointer transition-all duration-300 ${
                 value.toLowerCase() === topic.value.toLowerCase()
                   ? "bg-primary/90 border-primary text-primary-foreground font-semibold shadow-[0_0_15px_rgba(139,92,246,0.5)]"
                   : "bg-muted-background/30 backdrop-blur-md border-border/50 hover:bg-muted-background/80 hover:border-primary/40 text-foreground"

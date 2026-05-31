@@ -14,11 +14,9 @@ interface DifficultyOption {
   value: Difficulty;
   title: string;
   icon: ComponentType<{ className?: string }>;
-  colorClass: string;
-  bgColorClass: string;
   borderColorClass: string;
   shadowClass: string;
-  bullets: string[];
+  subtitle: string;
 }
 
 const OPTIONS: DifficultyOption[] = [
@@ -30,7 +28,7 @@ const OPTIONS: DifficultyOption[] = [
     bgColorClass: "bg-emerald-500/10 dark:bg-emerald-500/5",
     borderColorClass: "border-emerald-500",
     shadowClass: "shadow-[0_0_20px_rgba(16,185,129,0.25)]",
-    bullets: ["Simple vocabulary", "Basic grammar", "Easy and short questions"],
+    subtitle: "Basic grammar & simple vocabulary",
   },
   {
     value: "intermediate",
@@ -40,7 +38,7 @@ const OPTIONS: DifficultyOption[] = [
     bgColorClass: "bg-purple-500/10 dark:bg-purple-500/5",
     borderColorClass: "border-purple-500",
     shadowClass: "shadow-[0_0_20px_rgba(168,85,247,0.25)]",
-    bullets: ["Moderate grammar", "Varied vocabulary", "Sentence comprehension"],
+    subtitle: "Sentence comprehension & varied tenses",
   },
   {
     value: "advanced",
@@ -50,18 +48,18 @@ const OPTIONS: DifficultyOption[] = [
     bgColorClass: "bg-indigo-500/10 dark:bg-indigo-500/5",
     borderColorClass: "border-indigo-500",
     shadowClass: "shadow-[0_0_20px_rgba(99,102,241,0.25)]",
-    bullets: ["Complex grammar", "Advanced reading", "Idioms and formal vocabulary"],
+    subtitle: "Complex grammar & formal idioms",
   },
 ];
 
 export default function DifficultySelector({ selected, onSelect }: DifficultySelectorProps) {
   return (
     <div className="flex flex-col gap-3 w-full">
-      <span className="font-display font-bold text-lg text-foreground">
+      <span className="font-display font-bold text-sm sm:text-base text-foreground">
         Select your difficulty level
       </span>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="flex flex-col md:flex-row gap-3">
         {OPTIONS.map((opt) => {
           const Icon = opt.icon;
           const isSelected = selected === opt.value;
@@ -73,32 +71,32 @@ export default function DifficultySelector({ selected, onSelect }: DifficultySel
               onClick={() => onSelect(opt.value)}
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className={`relative flex flex-col items-start text-left p-5 rounded-2xl glassmorphism border transition-all duration-300 cursor-pointer ${
+              className={`flex-1 relative flex flex-row md:flex-col items-center md:items-start text-left p-3 sm:p-4 rounded-2xl glassmorphism border transition-all duration-300 cursor-pointer ${
                 isSelected
                   ? `${opt.borderColorClass} ${opt.bgColorClass} ${opt.shadowClass}`
                   : "border-border/40 hover:border-border hover:bg-card/40 shadow-sm"
               }`}
             >
-              <div className="flex items-center gap-3 mb-3">
-                <div className={`p-2 rounded-xl ${isSelected ? "bg-card shadow-sm" : "bg-muted-background"} ${opt.colorClass}`}>
-                  <Icon className="w-5 h-5" />
+              <div className="flex items-center gap-3">
+                <div className={`p-2 rounded-xl shrink-0 ${isSelected ? "bg-card shadow-sm" : "bg-muted-background"} ${opt.colorClass}`}>
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <span className="font-display font-bold text-base text-foreground">
-                  {opt.title}
-                </span>
+                <div className="flex flex-col">
+                  <span className="font-display font-bold text-sm sm:text-base text-foreground leading-tight">
+                    {opt.title}
+                  </span>
+                  <span className="text-[10px] sm:text-xs text-muted mt-0.5 md:mt-1 hidden sm:block">
+                    {opt.subtitle}
+                  </span>
+                </div>
               </div>
               
-              <ul className="space-y-1.5 w-full">
-                {opt.bullets.map((bullet, index) => (
-                  <li key={index} className="text-xs text-muted flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 shrink-0 text-muted/60" />
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
+              <span className="text-[10px] text-muted mt-1 block sm:hidden ml-2">
+                {opt.subtitle}
+              </span>
               
               {isSelected && (
-                <div className={`absolute top-4 right-4 ${opt.colorClass}`}>
+                <div className={`absolute right-3 md:top-3 md:right-3 ${opt.colorClass}`}>
                   <CheckCircle2 className="w-5 h-5 fill-current text-white dark:text-slate-900 stroke-2" />
                 </div>
               )}
