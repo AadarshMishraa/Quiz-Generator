@@ -21,9 +21,13 @@ export default function HomePage() {
   // App state
   const [topic, setTopic] = useState("");
   const [difficulty, setDifficulty] = useState<Difficulty>("beginner");
-  const [provider, setProvider] = useState<AIProvider>(
-    (process.env.NEXT_PUBLIC_DEFAULT_AI_PROVIDER as AIProvider) || "gemini"
-  );
+  const [provider, setProvider] = useState<AIProvider>(() => {
+    const defaultProvider = process.env.NEXT_PUBLIC_DEFAULT_AI_PROVIDER;
+    if (defaultProvider === "gemini" || defaultProvider === "openai" || defaultProvider === "openrouter") {
+      return defaultProvider as AIProvider;
+    }
+    return "gemini";
+  });
   const [loading, setLoading] = useState(false);
   
   // Validation state
