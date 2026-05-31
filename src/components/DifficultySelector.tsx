@@ -14,6 +14,8 @@ interface DifficultyOption {
   value: Difficulty;
   title: string;
   icon: ComponentType<{ className?: string }>;
+  colorClass: string;
+  bgColorClass: string;
   borderColorClass: string;
   shadowClass: string;
   subtitle: string;
