@@ -44,11 +44,11 @@ export default function TopicInput({ value, onChange, error }: TopicInputProps) 
           placeholder="Write a Spanish topic..."
           aria-invalid={!!error}
           aria-describedby={error ? "topic-error" : undefined}
-          className={`w-full h-14 px-5 pr-12 rounded-2xl bg-card border-2 ${
+          className={`w-full h-14 px-5 pr-12 rounded-2xl bg-card border ${
             error
-              ? "border-red-500/80 focus:border-red-500 focus:ring-red-500/10"
-              : "border-border focus:border-primary focus:ring-primary/10"
-          } text-foreground placeholder-muted outline-none transition-all shadow-sm font-medium text-base`}
+              ? "border-red-500/80 focus:border-red-500 focus:shadow-[0_0_10px_rgba(239,68,68,0.2)]"
+              : "border-border focus:border-primary focus:shadow-[0_0_15px_rgba(139,92,246,0.3)]"
+          } text-foreground placeholder-muted outline-none transition-all shadow-inner font-medium text-base`}
         />
         <div className="absolute right-4 top-1/2 -translate-y-1/2 text-muted">
           <HelpCircle className="w-5 h-5 opacity-60" />
@@ -78,10 +78,10 @@ export default function TopicInput({ value, onChange, error }: TopicInputProps) 
               onClick={() => onChange(topic.value)}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className={`px-3.5 py-1.5 rounded-xl text-sm font-medium border-2 cursor-pointer transition-colors duration-200 ${
+              className={`px-3.5 py-1.5 rounded-xl text-sm font-medium border cursor-pointer transition-all duration-300 ${
                 value.toLowerCase() === topic.value.toLowerCase()
-                  ? "bg-primary border-primary text-primary-foreground font-semibold"
-                  : "bg-card border-border hover:border-primary/50 text-foreground"
+                  ? "bg-primary/90 border-primary text-primary-foreground font-semibold shadow-[0_0_15px_rgba(139,92,246,0.5)]"
+                  : "bg-muted-background/30 backdrop-blur-md border-border/50 hover:bg-muted-background/80 hover:border-primary/40 text-foreground"
               }`}
             >
               {topic.label}

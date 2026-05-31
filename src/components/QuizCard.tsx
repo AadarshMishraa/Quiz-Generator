@@ -18,7 +18,7 @@ export default function QuizCard({ question, selectedAnswer, onSelectAnswer }: Q
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
       transition={{ duration: 0.25 }}
-      className="w-full bg-card border-2 border-border rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col gap-6"
+      className="w-full glassmorphism rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col gap-6"
     >
       <div className="flex flex-col gap-1.5">
         <span className="text-xs font-bold text-primary uppercase tracking-widest font-display">
@@ -41,17 +41,17 @@ export default function QuizCard({ question, selectedAnswer, onSelectAnswer }: Q
               onClick={() => onSelectAnswer(option)}
               whileHover={{ scale: 1.01, x: 2 }}
               whileTap={{ scale: 0.99 }}
-              className={`flex items-center gap-4 w-full p-4 sm:p-5 rounded-2xl border-2 text-left transition-all duration-200 cursor-pointer ${
+              className={`flex items-center gap-4 w-full p-4 sm:p-5 rounded-2xl border text-left transition-all duration-300 cursor-pointer ${
                 isSelected
-                  ? "bg-primary/10 border-primary text-primary shadow-sm"
-                  : "bg-muted-background/40 hover:bg-muted-background border-border hover:border-muted text-foreground"
+                  ? "bg-primary/20 border-primary text-primary shadow-[0_0_15px_rgba(139,92,246,0.3)]"
+                  : "bg-muted-background/20 backdrop-blur-sm hover:bg-muted-background/60 border-border/50 hover:border-primary/40 text-foreground"
               }`}
             >
               <div
-                className={`w-9 h-9 rounded-xl flex items-center justify-center font-bold text-sm shrink-0 border-2 transition-all ${
+                className={`w-9 h-9 rounded-xl flex items-center justify-center font-bold text-sm shrink-0 border transition-all duration-300 ${
                   isSelected
-                    ? "bg-primary border-primary text-primary-foreground"
-                    : "bg-card border-border text-muted"
+                    ? "bg-primary border-primary text-primary-foreground shadow-[0_0_10px_rgba(139,92,246,0.5)]"
+                    : "bg-card border-border/50 text-muted"
                 }`}
               >
                 {prefix}

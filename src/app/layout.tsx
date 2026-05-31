@@ -28,7 +28,7 @@ export default function RootLayout({
   // We inject a script to prevent theme flash when loading the app
   const themeInitScript = `
     (function() {
-      const theme = localStorage.getItem('theme') || 'light';
+      const theme = localStorage.getItem('theme') || 'dark';
       if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       } else {

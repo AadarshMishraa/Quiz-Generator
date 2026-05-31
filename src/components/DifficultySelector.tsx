@@ -17,6 +17,7 @@ interface DifficultyOption {
   colorClass: string;
   bgColorClass: string;
   borderColorClass: string;
+  shadowClass: string;
   bullets: string[];
 }
 
@@ -28,6 +29,7 @@ const OPTIONS: DifficultyOption[] = [
     colorClass: "text-emerald-500",
     bgColorClass: "bg-emerald-500/10 dark:bg-emerald-500/5",
     borderColorClass: "border-emerald-500",
+    shadowClass: "shadow-[0_0_20px_rgba(16,185,129,0.25)]",
     bullets: ["Simple vocabulary", "Basic grammar", "Easy and short questions"],
   },
   {
@@ -37,6 +39,7 @@ const OPTIONS: DifficultyOption[] = [
     colorClass: "text-purple-500",
     bgColorClass: "bg-purple-500/10 dark:bg-purple-500/5",
     borderColorClass: "border-purple-500",
+    shadowClass: "shadow-[0_0_20px_rgba(168,85,247,0.25)]",
     bullets: ["Moderate grammar", "Varied vocabulary", "Sentence comprehension"],
   },
   {
@@ -46,6 +49,7 @@ const OPTIONS: DifficultyOption[] = [
     colorClass: "text-indigo-500",
     bgColorClass: "bg-indigo-500/10 dark:bg-indigo-500/5",
     borderColorClass: "border-indigo-500",
+    shadowClass: "shadow-[0_0_20px_rgba(99,102,241,0.25)]",
     bullets: ["Complex grammar", "Advanced reading", "Idioms and formal vocabulary"],
   },
 ];
@@ -69,10 +73,10 @@ export default function DifficultySelector({ selected, onSelect }: DifficultySel
               onClick={() => onSelect(opt.value)}
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className={`relative flex flex-col items-start text-left p-5 rounded-2xl bg-card border-2 transition-all cursor-pointer shadow-sm ${
+              className={`relative flex flex-col items-start text-left p-5 rounded-2xl glassmorphism border transition-all duration-300 cursor-pointer ${
                 isSelected
-                  ? `${opt.borderColorClass} ${opt.bgColorClass} shadow-md`
-                  : "border-border hover:border-muted"
+                  ? `${opt.borderColorClass} ${opt.bgColorClass} ${opt.shadowClass}`
+                  : "border-border/40 hover:border-border hover:bg-card/40 shadow-sm"
               }`}
             >
               <div className="flex items-center gap-3 mb-3">

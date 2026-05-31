@@ -105,7 +105,7 @@ export default function HomePage() {
                 <span className="inline-block px-3.5 py-1 text-xs font-bold bg-primary/10 border border-primary/20 text-primary rounded-full uppercase tracking-wider font-display mb-3">
                   Learn Spanish with Artificial Intelligence!
                 </span>
-                <h1 className="text-3.5xl sm:text-5xl font-display font-black tracking-tight text-foreground leading-tight">
+                <h1 className="text-4xl sm:text-6xl font-display font-black tracking-tight gradient-text pb-2 leading-tight">
                   Spanish Quiz Generator
                 </h1>
                 <p className="text-sm sm:text-base text-muted max-w-lg mx-auto mt-2 font-medium">
@@ -115,7 +115,7 @@ export default function HomePage() {
 
               <form
                 onSubmit={handleGenerateQuiz}
-                className="bg-card border-2 border-border rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col gap-6"
+                className="glassmorphism rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col gap-6"
               >
                 <TopicInput value={topic} onChange={setTopic} error={validationError} />
                 
@@ -165,7 +165,7 @@ export default function HomePage() {
 
                 <button
                   type="submit"
-                  className="w-full h-14 bg-primary hover:bg-primary-hover text-primary-foreground text-base font-bold rounded-2xl shadow-lg shadow-primary/20 hover:shadow-primary/30 flex items-center justify-center gap-2 cursor-pointer transition-all duration-150 active:scale-98 mt-2"
+                  className="animated-border-glow w-full h-14 bg-primary hover:bg-primary-hover text-primary-foreground text-base font-bold rounded-2xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 cursor-pointer transition-all duration-300 active:scale-98 mt-2"
                 >
                   <span>Generate Quiz</span>
                   <ArrowRight className="w-5 h-5" />

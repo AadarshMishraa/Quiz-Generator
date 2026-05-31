@@ -76,7 +76,7 @@ export default function LoadingScreen({ topic }: LoadingScreenProps) {
       </div>
 
       {/* Facts Slider */}
-      <div className="w-full bg-card border-2 border-border rounded-2xl p-5 min-h-[140px] flex items-center relative overflow-hidden shadow-sm">
+      <div className="w-full glassmorphism border rounded-2xl p-5 min-h-[140px] flex items-center relative overflow-hidden shadow-lg">
         <AnimatePresence mode="wait">
           <motion.div
             key={factIndex}

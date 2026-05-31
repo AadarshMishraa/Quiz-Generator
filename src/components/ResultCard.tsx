@@ -69,7 +69,7 @@ export default function ResultCard({
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        className="bg-card border-2 border-border rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col items-center text-center gap-6"
+        className="glassmorphism rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col items-center text-center gap-6"
       >
         <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center text-primary">
           <Trophy className="w-10 h-10 animate-bounce" />
@@ -128,14 +128,14 @@ export default function ResultCard({
         <div className="flex flex-col sm:flex-row gap-3 w-full max-w-sm mt-2">
           <button
             onClick={onRetry}
-            className="flex-1 flex items-center justify-center gap-2 h-12 bg-primary hover:bg-primary-hover text-primary-foreground font-bold rounded-2xl cursor-pointer shadow-md shadow-primary/15 transition-all active:scale-95"
+            className="flex-1 flex items-center justify-center gap-2 h-12 bg-primary hover:bg-primary-hover text-primary-foreground font-bold rounded-2xl cursor-pointer shadow-[0_0_15px_rgba(139,92,246,0.4)] transition-all active:scale-95 animated-border-glow"
           >
             <RotateCcw className="w-4 h-4" /> Try Again
           </button>
           
           <button
             onClick={handleShare}
-            className="flex-1 flex items-center justify-center gap-2 h-12 bg-card hover:bg-muted-background text-foreground font-bold rounded-2xl border-2 border-border cursor-pointer transition-all active:scale-95"
+            className="flex-1 flex items-center justify-center gap-2 h-12 bg-card hover:bg-muted-background/80 text-foreground font-bold rounded-2xl border cursor-pointer transition-all active:scale-95"
           >
             {copied ? (
               <>
@@ -167,7 +167,7 @@ export default function ResultCard({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05 }}
-                className={`border-2 rounded-2xl p-5 bg-card flex flex-col gap-3 ${
+                className={`border rounded-2xl p-5 glassmorphism shadow-md flex flex-col gap-3 ${
                   isCorrect ? "border-emerald-500/20" : "border-red-500/20"
                 }`}
               >
